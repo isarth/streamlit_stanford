@@ -9,13 +9,13 @@ from models_arc import *
 
 n_classes = 40
 
-fl = open("../stanford_class_labels.pkl",'rb')
+fl = open("stanford_class_labels.pkl",'rb')
 classes = pickle.load(fl)
 classes = list(classes.keys())
 
 model = ConvModel_BnResnet(n_classes)
 model.eval()
-model.load_state_dict(torch.load('../best_model_stanford.pt', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('best_model_stanford.pt', map_location=torch.device('cpu')))
 
 def load_image(image_file):
   img = Image.open(image_file)
